@@ -59,6 +59,7 @@ public:
         element = newElement;
     }
     ~MPointer<T>() {
+        cout << "Called by " << id << endl;
         if (MPointerGC<T>::isInitialized()) {
             MPointerGC<T>::getInstance().removeMPointer(id);
         }

@@ -5,6 +5,7 @@
 #include "json.hpp"
 #include "MPointer.h"
 #include "Client.h"
+
 int main(int argc, char *argv[]) {
     MPointerGC<int>& instance = MPointerGC<int>::getInstance();
 

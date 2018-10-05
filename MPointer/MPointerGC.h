@@ -1,7 +1,7 @@
 #ifndef MPOINTERS_MPOINTERGC_H
 #define MPOINTERS_MPOINTERGC_H
 
-#include "../MServer/AbstractDataType/DoublyLinkedList.cpp"
+#include "../MServer/DoublyLinkedList.cpp"
 #include <chrono>
 #include <thread>
 
@@ -23,7 +23,7 @@ public:
         ids.addDuplicate(id);
     }
     void removeNode(int id) {
-        ids.removeNode(id);
+        ids.removeNode(ids.getNode(id));
     }
     void removeMPointer(int id) {
         ids.getNode(id)->refCount--;
