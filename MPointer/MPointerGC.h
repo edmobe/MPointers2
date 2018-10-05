@@ -4,6 +4,7 @@
 #include "../MServer/DoublyLinkedList.cpp"
 #include <chrono>
 #include <thread>
+#include <atomic>
 
 /*
  * Based on: https://stackoverflow.com/questions/1008019/c-singleton-design-pattern
@@ -35,12 +36,18 @@ public:
         ids.printNodes();
     }
 
-    void run() {
-        for (int i = 0; i < ids.getSize(); i++) {
-            if(ids.getByIndex(i)->refCount == 0) {
-                cout << "The GC has freed the value pointed by " << ids.getByIndex(i)->id << endl;
-                ids.removeNode(ids.getByIndex(i)->id);
+    static void update( std::atomic<bool>& program_is_running, unsigned int update_interval_millisecs )
+    {
+        const auto wait_duration = std::chrono::milliseconds(update_interval_millisecs) ;
+        while( initialized ) {
+            for (int i = 0; i < ids.getSize(); i++) {
+                if(ids.getAtIndex(i)->refCount == 0) {
+                    cout << "The GC has freed the value pointed by " <<
+                    ids.getAtIndex(i)->id << endl;
+                    ids.removeNode(ids.getAtIndex(i));
+                }
             }
+            std::this_thread::sleep_for(wait_duration) ;
         }
     }
 
@@ -53,7 +60,7 @@ public:
     }
 
 private:
-    DoublyLinkedList<T> ids;
+    static DoublyLinkedList<T> ids;
     static int current_id;
     static bool initialized;
     MPointerGC<T>() {}

@@ -7,7 +7,13 @@
 #include "Client.h"
 
 int main(int argc, char *argv[]) {
+    // ==================== INITIALIZE THREAD ====================================
     MPointerGC<int>& instance = MPointerGC<int>::getInstance();
+
+    std::atomic<bool> running { true } ;
+    const unsigned int update_interval = 1000 ; // update after every second
+    std::thread update_thread(MPointerGC<int>::update, std::ref(running), update_interval );
+    // ============================================================================
 
     /*
     Client* cliente = new Client();
@@ -38,7 +44,7 @@ int main(int argc, char *argv[]) {
 
     cout << "=====================" << endl;
 
-
+    int command = -1;
     TestLinkedList list;
     list.push(mPtr.get());
     list.push(mPtr2.get());
@@ -49,11 +55,6 @@ int main(int argc, char *argv[]) {
     list.bubbleSort();
     list.insertionSort();
 
-
-
-
-    /*
-    int command;
     while (command != 0) {
         cout << "Enter 1 to delete mPtr" << endl;
         cout << "Enter 2 to delete mPtr2" << endl;
@@ -74,7 +75,7 @@ int main(int argc, char *argv[]) {
             instance.print();
         }
     }
-    */
+
     /*
      * MPOINTER GC UTILITY EXAMPLE
      */
@@ -106,4 +107,10 @@ int main(int argc, char *argv[]) {
         }
     }
     */
+
+    // ================== THREAD END =========================
+    // exit gracefully
+    running = false ;
+    update_thread.join() ;
+    // =======================================================
 }

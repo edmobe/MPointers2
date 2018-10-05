@@ -36,7 +36,7 @@ public:
         delete cur;
     }
     Node* get(int index) {
-        if (index <= len) {
+        if (index < len) {
             Node* cur = head;
             for (int i = 0; i < index; i++) {
                 cur = cur->next;

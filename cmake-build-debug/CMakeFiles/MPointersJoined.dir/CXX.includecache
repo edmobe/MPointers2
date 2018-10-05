@@ -26,11 +26,21 @@ iostream
 json.hpp
 /home/edmobe/TEC/Datos II/MPointersJoined/MPointer/json.hpp
 
+/home/edmobe/TEC/Datos II/MPointersJoined/MPointer/MPointer.cpp
+MPointerGC.h
+/home/edmobe/TEC/Datos II/MPointersJoined/MPointer/MPointerGC.h
+MPointer.h
+/home/edmobe/TEC/Datos II/MPointersJoined/MPointer/MPointer.h
+
 /home/edmobe/TEC/Datos II/MPointersJoined/MPointer/MPointer.h
 iostream
 -
 typeinfo
 -
+MPointerGC.h
+/home/edmobe/TEC/Datos II/MPointersJoined/MPointer/MPointerGC.h
+
+/home/edmobe/TEC/Datos II/MPointersJoined/MPointer/MPointerGC.cpp
 MPointerGC.h
 /home/edmobe/TEC/Datos II/MPointersJoined/MPointer/MPointerGC.h
 
@@ -40,6 +50,8 @@ MPointerGC.h
 chrono
 -
 thread
+-
+atomic
 -
 
 /home/edmobe/TEC/Datos II/MPointersJoined/MPointer/TestLinkedList.h

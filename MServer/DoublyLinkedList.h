@@ -66,6 +66,7 @@ public:
                 tail = tail->next;
             }
         }
+        len++;
     }
     Node* getNode(int id) {
         Node* cur = head;
@@ -88,8 +89,7 @@ public:
         return cur;
     }
 
-    void removeNode(Node* ref)
-    {
+    void removeNode(Node* ref) {
         /* base case */
         if(head == NULL || tail == NULL)
             return;
@@ -108,12 +108,18 @@ public:
 
         /* Finally, free the memory occupied by del*/
         free(ref);
+        len--;
         return;
     }
 
     void addDuplicate(int id) {
         getNode(id)->refCount++;
     }
+
+    int getSize() {
+        return len;
+    }
+
 };
 
 
