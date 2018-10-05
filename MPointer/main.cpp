@@ -3,7 +3,7 @@
 //
 #include <typeinfo>
 #include "json.hpp"
-#include "MPointer.h"
+#include "TestLinkedList.h"
 #include "Client.h"
 
 int main(int argc, char *argv[]) {
@@ -34,7 +34,19 @@ int main(int argc, char *argv[]) {
     mPtr4.print();
 
     instance.print();
+    instance.printNodes();
 
+    cout << "=====================" << endl;
+
+    TestLinkedList list;
+    list.push(mPtr.get());
+    list.push(mPtr2.get());
+    list.push(mPtr3.get());
+    list.push(mPtr4.get());
+    list.printList();
+
+
+    /*
     int command;
     while (command != 0) {
         cout << "Enter 1 to delete mPtr" << endl;
@@ -56,7 +68,7 @@ int main(int argc, char *argv[]) {
             instance.print();
         }
     }
-
+    */
     /*
      * MPOINTER GC UTILITY EXAMPLE
      */

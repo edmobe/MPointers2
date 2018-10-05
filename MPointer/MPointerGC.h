@@ -31,6 +31,9 @@ public:
     void print() {
         ids.print();
     }
+    void printNodes() {
+        ids.printNodes();
+    }
 
     void run() {
         for (int i = 0; i < ids.getSize(); i++) {

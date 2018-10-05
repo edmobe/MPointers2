@@ -13,4 +13,4 @@ add_executable(MPointersJoined
         MPointer/MPointer.cpp
         MPointer/MPointer.h
         MPointer/MPointerGC.cpp
-        MPointer/MPointerGC.h MServer/DoublyLinkedList.cpp MServer/DoublyLinkedList.h)
+        MPointer/MPointerGC.h MServer/DoublyLinkedList.cpp MServer/DoublyLinkedList.h MPointer/TestLinkedList.h)

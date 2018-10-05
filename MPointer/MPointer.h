@@ -25,6 +25,10 @@ public:
         return id;
     }
 
+    MPointer<T>* get() {
+        return this;
+    }
+
     T& operator*(){
         return *element;
     }
@@ -59,7 +63,7 @@ public:
         element = newElement;
     }
     ~MPointer<T>() {
-        cout << "Called by " << id << endl;
+        //cout << "Called by " << id << endl;
         if (MPointerGC<T>::isInitialized()) {
             MPointerGC<T>::getInstance().removeMPointer(id);
         }

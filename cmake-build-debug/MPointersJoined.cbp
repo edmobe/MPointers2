@@ -104,6 +104,9 @@
 		<Unit filename="/home/edmobe/TEC/Datos II/MPointersJoined/MPointer/MPointerGC.h">
 			<Option target="MPointersJoined"/>
 		</Unit>
+		<Unit filename="/home/edmobe/TEC/Datos II/MPointersJoined/MPointer/TestLinkedList.h">
+			<Option target="MPointersJoined"/>
+		</Unit>
 		<Unit filename="/home/edmobe/TEC/Datos II/MPointersJoined/MPointer/json.hpp">
 			<Option target="MPointersJoined"/>
 		</Unit>

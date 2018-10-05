@@ -36,6 +36,15 @@ public:
             temp = temp->next;
         }
     }
+    void printNodes() {
+        Node* temp = head;
+        while(temp) {
+            cout << "[ID: " << temp->id << ", data: " <<
+                 *temp->reference<<  "] ->" << " ";
+            temp = temp->next;
+        }
+        cout << endl;
+    }
     void add(int newId, T* newReference) {
         if(head == NULL && tail == NULL) { //case 1//
             head = new Node(newId, newReference);
@@ -67,6 +76,16 @@ public:
             cur = cur->next;
         }
         return NULL;
+    }
+    Node* getAtIndex(int index) {
+        if (index > len) {
+            return NULL;
+        }
+        Node* cur = head;
+        for (int i = 0; i < index; i++) {
+            cur = cur->next;
+        }
+        return cur;
     }
 
     void removeNode(Node* ref)
