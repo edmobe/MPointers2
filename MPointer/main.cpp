@@ -38,12 +38,18 @@ int main(int argc, char *argv[]) {
 
     cout << "=====================" << endl;
 
+
     TestLinkedList list;
     list.push(mPtr.get());
     list.push(mPtr2.get());
     list.push(mPtr3.get());
     list.push(mPtr4.get());
     list.printList();
+    list.quickSort();
+    list.bubbleSort();
+    list.insertionSort();
+
+
 
 
     /*
