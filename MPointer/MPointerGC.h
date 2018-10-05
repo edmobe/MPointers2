@@ -30,7 +30,10 @@ public:
         ids.getNode(id)->refCount--;
     }
     void print() {
+        cout << "========== GC ==============" << endl;
         ids.print();
+        cout << "=============================" << endl;
+
     }
     void printNodes() {
         ids.printNodes();

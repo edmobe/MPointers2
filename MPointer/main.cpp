@@ -11,7 +11,7 @@ int main(int argc, char *argv[]) {
     MPointerGC<int>& instance = MPointerGC<int>::getInstance();
 
     std::atomic<bool> running { true } ;
-    const unsigned int update_interval = 1000 ; // update after every second
+    const unsigned int update_interval = 5000 ; // update after every second
     std::thread update_thread(MPointerGC<int>::update, std::ref(running), update_interval );
     // ============================================================================
 
@@ -20,9 +20,9 @@ int main(int argc, char *argv[]) {
     */
 
     MPointer<int> mPtr = MPointer<int>::New();
-    mPtr.print();
-    mPtr = 11111;
-    mPtr.print();
+    //mPtr.print();
+    //mPtr = 11111;
+    //mPtr.print();
     mPtr = 11112;
     mPtr.print();
     //*myPtr = 5;
@@ -42,7 +42,7 @@ int main(int argc, char *argv[]) {
     instance.print();
     instance.printNodes();
 
-    cout << "=====================" << endl;
+    cout << "===========================" << endl;
 
     int command = -1;
     TestLinkedList list;
@@ -50,18 +50,19 @@ int main(int argc, char *argv[]) {
     list.push(mPtr2.get());
     list.push(mPtr3.get());
     list.push(mPtr4.get());
-    list.printList();
     list.quickSort();
     list.bubbleSort();
     list.insertionSort();
 
     while (command != 0) {
+        cout << "=========== TEST ==============" << endl;
         cout << "Enter 1 to delete mPtr" << endl;
         cout << "Enter 2 to delete mPtr2" << endl;
         cout << "Enter 3 to delete mPtr3" << endl;
         cout << "Enter 4 to delete mPtr4" << endl;
         cout << "Enter 5 to print the GC" << endl;
         cout << "Enter 0 to exit" << endl;
+        cout << "===============================" << endl;
         cin >> command;
         if (command == 1) {
             mPtr.~MPointer<int>();
